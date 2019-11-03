@@ -3,24 +3,25 @@ from tensorflow import keras
 from tensorflow.keras import layers
 import numpy as np
 import datetime as dt
-(x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar10.load_data()
 
-train_dataset = tf.data.Dataset.from_tensor_slices(
-    (x_train, y_train)).batch(64).shuffle(10000)
-train_dataset = train_dataset.map(
-    lambda x, y: (tf.cast(x, tf.float32) / 255.0, y))
-train_dataset = train_dataset.map(
-    lambda x, y: (tf.image.central_crop(x, 0.75), y))
-train_dataset = train_dataset.map(
-    lambda x, y: (tf.image.random_flip_left_right(x), y))
-train_dataset = train_dataset.repeat()
-valid_dataset = tf.data.Dataset.from_tensor_slices(
-    (x_test, y_test)).batch(5000).shuffle(10000)
-valid_dataset = valid_dataset.map(
-    lambda x, y: (tf.cast(x, tf.float32) / 255.0, y))
-valid_dataset = valid_dataset.map(
-    lambda x, y: (tf.image.central_crop(x, 0.75), y))
-valid_dataset = valid_dataset.repeat()
+# load data
+(X_train, y_train), (X_test, y_test) = cifar10.load_data()
+
+X_train = X_train[0:49984]
+y_train = y_train[0:49984]
+X_test = X_test[0:9984]
+y_test = y_test[0:9984]
+
+# normalize inputs from 0-255 to 0.0-1.0
+X_train = X_train.astype('float32')
+X_test = X_test.astype('float32')
+X_train = X_train / 255.0
+X_test = X_test / 255.0
+
+# one hot encode outputs
+y_train = to_categorical(y_train)
+y_test = to_categorical(y_test)
+num_classes = y_test.shape[1]
 
 inputs = keras.Input(shape=(24, 24, 3))
 x = layers.Conv2D(32, 3, activation='relu')(inputs)
