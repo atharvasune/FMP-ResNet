@@ -34,6 +34,8 @@ present every 2 or 3 layers.
   * Number of Layers (ResNet blocks): 20
   * Number of Dense Layers: 2
   * Number of Parameters: 1,612,042
+  * train accuracy: ~78%
+  * validation accuracy: ~71%
   * <a href = "https://github.com/AtharvaSune/FMP-ResNet/blob/master/ResNEt/ResNet.txt">Model Summary </a>
   
 <h4> Fractional Max Pooling </h4>
@@ -41,6 +43,8 @@ present every 2 or 3 layers.
   * Number of Layers (Convolutional blocks): 18
   * Number of Dense Layers: 2
   * Number of Parameters: 66,865,738
+  * train accuracy: ~70%
+  * validation accuracy: ~69%
   * <a href = "https://github.com/AtharvaSune/FMP-ResNet/blob/master/FMP/FMP.txt">Model Summary </a>
   
 <h4> HYBRID: ResNet + Fractional Max Pooling </h4>
@@ -49,6 +53,8 @@ This model aims to combine both the above techniques. To accomplish this, the Ma
   * Number of Layers (ResNet blocks): 12
   * Number of Dense Layers: 2
   * Number of Parameters: 868,362
+  * train accuracy: ~78%
+  * validation accuracy: ~72%
   * <a href = "https://github.com/AtharvaSune/FMP-ResNet/blob/master/Hybrid/Hybrid.txt">Model Summary </a>
 
 ## Results
