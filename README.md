@@ -69,7 +69,7 @@ Training was done over 50 epochs with a step size 100. There were 64 images per 
 
 ## Conclusions
 
-  * The Hybrid Model gives comparable results to the ResNet model, with almost <b><u>half</b></u> the number of layers and parameters.
+  * The Hybrid Model gives comparable results to the ResNet model, with almost <b>half the number of layers and parameters.</b>
   * This leads to much lesser scope of overfitting in the Hybrid Model since the number of parameters is 50%.
   * Since the size of the model is significantly smaller, the memory consumption of the model is lesser but gives similar levels of performance.
   * For more complex models, the depth of the hybrid model can thus be increased without worrying about computation and overfitting as with regular ResNets
