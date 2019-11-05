@@ -25,8 +25,31 @@ present every 2 or 3 layers.
 
 a. <a href = "https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a>, by Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
 
-b. <a href = "https://arxiv.org/abs/1412.6071">Fractional Max-Pooling<a/> by Benjamin Graham
+b. <a href = "https://arxiv.org/abs/1412.6071">Fractional Max-Pooling</a> by Benjamin Graham
 
-## The Hybrid Model
-...
+## Models
+
+<h4> ResNet </h4>
+
+  * Number of Layers (ResNet blocks): 20
+  * Nunber of Dense Layers: 2
+  * Dataset: CIFAR - 10
+  * Train set size: 50,000
+  * Validation set size: 10,000
+  
+<h4> Fractional Max Pooling </h4>
+
+  * Number of Layers (Convolutional blocks): 18
+  * Nunber of Dense Layers: 2
+  * Dataset: CIFAR - 10
+  * Train set size: 50,000
+  * Validation set size: 10,000
+  
+<h4> HYBRID: ResNet </h4>
+
+  * Number of Layers (ResNet blocks): 20
+  * Nunber of Dense Layers: 2
+  * Dataset: CIFAR - 10
+  * Train set size: 50,000
+  * Validation set size: 10,000
 
