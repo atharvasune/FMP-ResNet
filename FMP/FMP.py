@@ -1,3 +1,4 @@
+# import required packages
 from __future__ import absolute_import
 import matplotlib
 from tensorflow.keras.layers import Conv2D, Conv1D, LSTM
@@ -18,8 +19,10 @@ import numpy as np
 from tensorflow.keras.layers import *
 import tensorflow as tf
 
-
+# Create custom Fractional Max Pooling Layer
 class FractionalPooling2D(Layer):
+    
+    # initialize the class
     def __init__(self, pool_ratio=None, pseudo_random=True, overlap=False, name='FractionPooling2D', **kwargs):
         self.pool_ratio = pool_ratio
         self.input_spec = [InputSpec(ndim=4)]
@@ -33,7 +36,7 @@ class FractionalPooling2D(Layer):
         return(batch_tensor)
 
     def compute_output_shape(self, input_shape):
-
+        # Compute output shape for the layer
         if(input_shape[0] != None):
             batch_size = int(input_shape[0]/self.pool_ratio[0])
         else:
@@ -56,7 +59,6 @@ class FractionalPooling2D(Layer):
 #--------------------------------------------------------------#
 
 
-# fix random seed for reproducibility
 seed = 7
 numpy.random.seed(seed)
 
@@ -76,19 +78,9 @@ valid_dataset = valid_dataset.map(
 valid_dataset = valid_dataset.repeat()
 
 
-# Function to create a normal convolutional block // Removed from RESNET and added here
-def non_res_block(input_data, filters, conv_size):
-    x = layers.Conv2D(filters, conv_size, activation='relu',
-                      padding='same')(input_data)
-    x = layers.BatchNormalization()(x)
-    x = layers.Conv2D(filters, conv_size,
-                      activation='relu', padding='same')(x)
-    x = layers.BatchNormalization()(x)
-    return x
-
-
 # Create the model
 model = Sequential()
+
 # Block 1
 model.add(Conv2D(64, (3, 3), batch_input_shape=(64, 32, 32, 3), padding='same'))
 model.add(LeakyReLU(alpha=0.3))
@@ -96,6 +88,7 @@ model.add(Conv2D(64, (3, 3), padding='same'))
 model.add(LeakyReLU(alpha=0.3))
 model.add(FractionalPooling2D(pool_ratio=(
     1, 1.6, 1.6, 1), pseudo_random=True, overlap=True))
+
 # Block 2
 model.add(Conv2D(128, (3, 3), padding='same'))
 model.add(LeakyReLU(alpha=0.3))
@@ -103,6 +96,7 @@ model.add(Conv2D(128, (3, 3), padding='same'))
 model.add(LeakyReLU(alpha=0.3))
 model.add(FractionalPooling2D(pool_ratio=(
     1, 1.25, 1.25, 1), pseudo_random=True, overlap=True))
+
 # Block 3
 model.add(Conv2D(256, (3, 3), padding='same'))
 model.add(LeakyReLU(alpha=0.3))
@@ -112,6 +106,7 @@ model.add(Conv2D(256, (3, 3), padding='same'))
 model.add(LeakyReLU(alpha=0.3))
 model.add(FractionalPooling2D(pool_ratio=(
     1, 1.6, 1.6, 1), pseudo_random=True, overlap=True))
+
 # Block 4
 model.add(Conv2D(256, (3, 3), padding='same'))
 model.add(LeakyReLU(alpha=0.3))
@@ -121,6 +116,7 @@ model.add(Conv2D(256, (3, 3), padding='same'))
 model.add(LeakyReLU(alpha=0.3))
 model.add(FractionalPooling2D(pool_ratio=(
     1, 1.25, 1.25, 1), pseudo_random=True, overlap=True))
+
 # Block 5
 model.add(Conv2D(512, (3, 3), padding='same'))
 model.add(LeakyReLU(alpha=0.3))
@@ -130,6 +126,7 @@ model.add(Conv2D(512, (3, 3), padding='same'))
 model.add(LeakyReLU(alpha=0.3))
 model.add(FractionalPooling2D(pool_ratio=(
     1, 1.6, 1.6, 1), pseudo_random=True, overlap=True))
+
 # Block 6
 model.add(Conv2D(512, (3, 3), padding='same'))
 model.add(LeakyReLU(alpha=0.3))
@@ -140,31 +137,31 @@ model.add(LeakyReLU(alpha=0.3))
 model.add(FractionalPooling2D(pool_ratio=(
     1, 1.25, 1.25, 1), pseudo_random=True, overlap=True))
 model.add(Flatten())
+
+# Dense Layers
 # fc layer_1
 model.add(Dense(4096))
 model.add(LeakyReLU(alpha=0.3))
+
 # fc_layer_2
 model.add(Dense(4096))
 model.add(LeakyReLU(alpha=0.3))
-
 model.add(Dense(10, activation='softmax'))
 
+# compile and fit the model
 opt = keras.optimizers.Adadelta(0.1, decay=1e-4)
-
 model.compile(loss='categorical_crossentropy',
               optimizer=opt, metrics=['accuracy'])
 print(model.summary())
-
 checkpoint = ModelCheckpoint(
     'Model.hdf5', monitor='val_loss', save_best_only=True, verbose=1, mode='min')
-
 callbacks_list = [checkpoint]
-# model.load_weights('Model.hdf5')
 results = model.fit(train_dataset, epochs=50, steps_per_epoch=100,
                     validation_data=valid_dataset,
                     validation_steps=3, callbacks=callbacks_list)
 #----------------------------------------------------------------------#
-%matplotlib inline
+
+# plot
 plt.plot(results.history['acc'])
 plt.plot(results.history['val_acc'])
 plt.title('model accuracy')
