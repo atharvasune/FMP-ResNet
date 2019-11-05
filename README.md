@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository implements two research papers for state-of-the-art Convolutional Neural Networks on the CIFAR - 10 dataset. Further, these two models have been combined to form a hybrid model. The performances of all these datasets have been documented and shown below.
+This repository implements two research papers for state-of-the-art Convolutional Neural Networks on the CIFAR - 10 dataset. Further, these two models have been combined to form a hybrid model. The performances of all these models have been documented and shown and a comparison has been drawn between them. The advantages offered by the Hybrid have been identified and listed.
 
 ### ResNet
 
@@ -20,12 +20,6 @@ present every 2 or 3 layers.
   * An alternative would be to use pooling schemes that reduce by factors other than two, e.g. `1 < factor < 2`.
   * Pooling by a factor of `sqrt(2)` would allow twice as many pooling layers as 2MP, resulting in "softer" image size reduction   throughout the network. This is called Fractional Max Pooling (FMP).
   * FMP has been shown to successfully remove overfitting without even using dropout.
-
-## Papers
-
-  * <a href = "https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a>, by Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
-
-  * <a href = "https://arxiv.org/abs/1412.6071">Fractional Max-Pooling</a> by Benjamin Graham
 
 ## Models
 
@@ -75,8 +69,15 @@ Training was done over 50 epochs with a step size 100. There were 64 images per 
 
 ## Conclusions
 
-  * The Hybrid Model gives comparable results to the ResNet model, with almost <b>half</b> the number of layers and parameters.
-  * This leads to much lesser scope of overfitting in the Hybrid Model since the number of parameters is 50 %.
+  * The Hybrid Model gives comparable results to the ResNet model, with almost <b><u>half</b></u> the number of layers and parameters.
+  * This leads to much lesser scope of overfitting in the Hybrid Model since the number of parameters is 50%.
   * Since the size of the model is significantly smaller, the memory consumption of the model is lesser but gives similar levels of performance.
   * For more complex models, the depth of the hybrid model can thus be increased without worrying about computation and overfitting as with regular ResNets
+  
+## Papers
+
+  * <a href = "https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a>, by Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
+
+  * <a href = "https://arxiv.org/abs/1412.6071">Fractional Max-Pooling</a> by Benjamin Graham
+
 
