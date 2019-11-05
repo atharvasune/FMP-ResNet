@@ -14,7 +14,7 @@ CNNs, by implementing skip connections.
 present every 2 or 3 layers.
 
 
-###Fractional Max Pooling
+### Fractional Max Pooling
 
   * Traditionally neural nets use max pooling with 2x2 grids (2MP), which reduces the image dimensions by a factor of 2.
   * An alternative would be to use pooling schemes that reduce by factors other than two, e.g. `1 < factor < 2`.
