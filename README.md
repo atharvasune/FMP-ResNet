@@ -33,14 +33,14 @@ present every 2 or 3 layers.
 
   * Number of Layers (ResNet blocks): 20
   * Number of Dense Layers: 2
-  *
+  * Number of Parameters: 1,612,042
   * <a href = "https://github.com/AtharvaSune/FMP-ResNet/blob/master/ResNEt/ResNet.txt">Model Summary </a>
   
 <h4> Fractional Max Pooling </h4>
 
   * Number of Layers (Convolutional blocks): 18
   * Number of Dense Layers: 2
-  * 
+  * Number of Parameters: 66,865,738
   * <a href = "https://github.com/AtharvaSune/FMP-ResNet/blob/master/FMP/FMP.txt">Model Summary </a>
   
 <h4> HYBRID: ResNet + Fractional Max Pooling </h4>
@@ -48,10 +48,32 @@ present every 2 or 3 layers.
 This model aims to combine both the above techniques. To accomplish this, the Max Pooling layers in ResNet have been replaced by Fractional Pooling Layers, which were created using Keras Layer Sub-classing (Custom Layer)
   * Number of Layers (ResNet blocks): 12
   * Number of Dense Layers: 2
-  * 
-  * <a href = "https://github.com/AtharvaSune/FMP-ResNet/blob/master/FMP/FMP.txt">Model Summary </a>
+  * Number of Parameters: 868,362
+  * <a href = "https://github.com/AtharvaSune/FMP-ResNet/blob/master/Hybrid/Hybrid.txt">Model Summary </a>
 
 ## Results
 
 These models were evaluated on the CIFAR - 10 dataset with a training set size of 50,000 and a validation set size of 10,000.
+Training was done over 50 epochs with a step size 100. There were 64 images per batch.
+### Accuracy
+#### ResNet
+![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/ResNEt/accuracy.png "ResNet")
+#### Fractional Max Pooling
+![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/FMP/accuracy.png "Fractional Max Pooling")
+#### Hybrid Model
+![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/Hybrid/accuracy.png "Hybrid")
+
+### Loss
+#### ResNet
+![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/ResNEt/Loss.png "ResNet")
+#### Fractional Max Pooling
+![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/FMP/loss.png "Fractional Max Pooling")
+#### Hybrid Model
+![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/Hybrid/loss.png "Hybrid")
+
+## Conclusions
+
+  * The number of parameters while using ResNet was significantly less as compared to when using only Fractional Max Pooling.
+  * Upon completion of 50 epochs, the accuracy of 
+     * Fractional Max Pooling 
 
