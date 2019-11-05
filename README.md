@@ -4,7 +4,14 @@ This repository implements two research papers for state of the art Convolutiona
 
 ## Introduction
 
-ResNets: ...
+### ResNet
+..*ResNet is a fairly recent architecture (2015) which has surpassed human level
+performance on the ImageNet dataset.
+..*ResNet solves the problem of vanishing gradients that occurs in many deep
+CNN, via implementing skip connections.
+..*Typical skip connections are built over 2 or 3 layers. That is a skip connection is
+present every 2 or 3 layers.
+
 
 Fractional Max Pooling ...
 
