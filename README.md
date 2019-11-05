@@ -33,17 +33,23 @@ present every 2 or 3 layers.
 
   * Number of Layers (ResNet blocks): 20
   * Number of Dense Layers: 2
+  *
+  * <a href = "https://github.com/AtharvaSune/FMP-ResNet/blob/master/ResNEt/ResNet.txt">Model Summary </a>
   
 <h4> Fractional Max Pooling </h4>
 
   * Number of Layers (Convolutional blocks): 18
   * Number of Dense Layers: 2
+  * 
+  * <a href = "https://github.com/AtharvaSune/FMP-ResNet/blob/master/FMP/FMP.txt">Model Summary </a>
   
 <h4> HYBRID: ResNet + Fractional Max Pooling </h4>
 
 This model aims to combine both the above techniques. To accomplish this, the Max Pooling layers in ResNet have been replaced by Fractional Pooling Layers, which were created using Keras Layer Sub-classing (Custom Layer)
   * Number of Layers (ResNet blocks): 12
   * Number of Dense Layers: 2
+  * 
+  * <a href = "https://github.com/AtharvaSune/FMP-ResNet/blob/master/FMP/FMP.txt">Model Summary </a>
 
 ## Results
 
