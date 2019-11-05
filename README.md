@@ -34,8 +34,6 @@ present every 2 or 3 layers.
   * Number of Layers (ResNet blocks): 20
   * Number of Dense Layers: 2
   * Number of Parameters: 1,612,042
-  * train accuracy: ~78%
-  * validation accuracy: ~71%
   * <a href = "https://github.com/AtharvaSune/FMP-ResNet/blob/master/ResNEt/ResNet.txt">Model Summary </a>
   
 <h4> Fractional Max Pooling </h4>
@@ -43,8 +41,6 @@ present every 2 or 3 layers.
   * Number of Layers (Convolutional blocks): 18
   * Number of Dense Layers: 2
   * Number of Parameters: 66,865,738
-  * train accuracy: ~70%
-  * validation accuracy: ~69%
   * <a href = "https://github.com/AtharvaSune/FMP-ResNet/blob/master/FMP/FMP.txt">Model Summary </a>
   
 <h4> HYBRID: ResNet + Fractional Max Pooling </h4>
@@ -53,8 +49,6 @@ This model aims to combine both the above techniques. To accomplish this, the Ma
   * Number of Layers (ResNet blocks): 12
   * Number of Dense Layers: 2
   * Number of Parameters: 868,362
-  * train accuracy: ~78%
-  * validation accuracy: ~72%
   * <a href = "https://github.com/AtharvaSune/FMP-ResNet/blob/master/Hybrid/Hybrid.txt">Model Summary </a>
 
 ## Results
@@ -64,12 +58,18 @@ Training was done over 50 epochs with a step size 100. There were 64 images per 
 <br />
 
 #### ResNet
+* Train accuracy: ~78%             
+* Validation accuracy: ~71% <br><br>
 ![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/ResNEt/accuracy.png "ResNet")
-![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/ResNEt/Loss.png "ResNet")
+![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/ResNEt/Loss.png "ResNet")<br>
 #### Fractional Max Pooling
+* Train accuracy: ~70%             
+* Validation accuracy: ~69% <br><br>
 ![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/FMP/accuracy.png "Fractional Max Pooling")
-![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/FMP/loss.png "Fractional Max Pooling")
+![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/FMP/loss.png "Fractional Max Pooling")<br>
 #### Hybrid Model
+* Train accuracy: ~80%             
+* Validation accuracy: ~72% <br><br>
 ![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/Hybrid/accuracy.png "Hybrid")
 ![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/Hybrid/loss.png "Hybrid")
 
