@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository implements two research papers for state of the art Convolutional Neural Networks on the CIFAR - 10 dataset. Further, these two models have been combined to form a hybrid model. 
+This repository implements two research papers for state-of-the-art Convolutional Neural Networks on the CIFAR - 10 dataset. Further, these two models have been combined to form a hybrid model. The performances of all these datasets have been documented and shown below.
 
 ### ResNet
 
