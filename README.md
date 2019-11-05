@@ -23,33 +23,28 @@ present every 2 or 3 layers.
 
 ## Papers
 
-a. <a href = "https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a>, by Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
+  * <a href = "https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a>, by Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
 
-b. <a href = "https://arxiv.org/abs/1412.6071">Fractional Max-Pooling</a> by Benjamin Graham
+  * <a href = "https://arxiv.org/abs/1412.6071">Fractional Max-Pooling</a> by Benjamin Graham
 
 ## Models
 
 <h4> ResNet </h4>
 
   * Number of Layers (ResNet blocks): 20
-  * Nunber of Dense Layers: 2
-  * Dataset: CIFAR - 10
-  * Train set size: 50,000
-  * Validation set size: 10,000
+  * Number of Dense Layers: 2
   
 <h4> Fractional Max Pooling </h4>
 
   * Number of Layers (Convolutional blocks): 18
-  * Nunber of Dense Layers: 2
-  * Dataset: CIFAR - 10
-  * Train set size: 50,000
-  * Validation set size: 10,000
+  * Number of Dense Layers: 2
   
-<h4> HYBRID: ResNet </h4>
+<h4> HYBRID: ResNet + Fractional Max Pooling </h4>
+  * This model aims to combine both the above techniques. To accomplish this, the Max Pooling layers in ResNet have been replaced by Fractional Pooling Layers, which were created using Keras Layer Sub-classing (Custom Layer)
+  * Number of Layers (ResNet blocks): 12
+  * Number of Dense Layers: 2
 
-  * Number of Layers (ResNet blocks): 20
-  * Nunber of Dense Layers: 2
-  * Dataset: CIFAR - 10
-  * Train set size: 50,000
-  * Validation set size: 10,000
+## Results
+
+These models were evaluated on the CIFAR - 10 dataset with a training set size of 50,000 and a validation set size of 10,000.
 
