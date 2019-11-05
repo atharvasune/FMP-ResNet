@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository implements two research papers for state of the art Convolutional Neural Networks on the CIFAR - 10 dataset. Further, these two models have been combined to form a hybrid model. 
+This repository implements two research papers for state-of-the-art Convolutional Neural Networks on the CIFAR - 10 dataset. Further, these two models have been combined to form a hybrid model. The performances of all these datasets have been documented and shown below.
 
 ### ResNet
 
@@ -23,10 +23,35 @@ present every 2 or 3 layers.
 
 ## Papers
 
-a. <a href = "https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a>, by Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
+  * <a href = "https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a>, by Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
 
-b. <a href = "https://arxiv.org/abs/1412.6071">Fractional Max-Pooling<a/> by Benjamin Graham
+  * <a href = "https://arxiv.org/abs/1412.6071">Fractional Max-Pooling</a> by Benjamin Graham
 
-## The hybrid model
-...
+## Models
+
+<h4> ResNet </h4>
+
+  * Number of Layers (ResNet blocks): 20
+  * Number of Dense Layers: 2
+  *
+  * <a href = "https://github.com/AtharvaSune/FMP-ResNet/blob/master/ResNEt/ResNet.txt">Model Summary </a>
+  
+<h4> Fractional Max Pooling </h4>
+
+  * Number of Layers (Convolutional blocks): 18
+  * Number of Dense Layers: 2
+  * 
+  * <a href = "https://github.com/AtharvaSune/FMP-ResNet/blob/master/FMP/FMP.txt">Model Summary </a>
+  
+<h4> HYBRID: ResNet + Fractional Max Pooling </h4>
+
+This model aims to combine both the above techniques. To accomplish this, the Max Pooling layers in ResNet have been replaced by Fractional Pooling Layers, which were created using Keras Layer Sub-classing (Custom Layer)
+  * Number of Layers (ResNet blocks): 12
+  * Number of Dense Layers: 2
+  * 
+  * <a href = "https://github.com/AtharvaSune/FMP-ResNet/blob/master/FMP/FMP.txt">Model Summary </a>
+
+## Results
+
+These models were evaluated on the CIFAR - 10 dataset with a training set size of 50,000 and a validation set size of 10,000.
 
