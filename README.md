@@ -55,20 +55,16 @@ This model aims to combine both the above techniques. To accomplish this, the Ma
 
 These models were evaluated on the CIFAR - 10 dataset with a training set size of 50,000 and a validation set size of 10,000.
 Training was done over 50 epochs with a step size 100. There were 64 images per batch.
-### Accuracy
+<br />
+
 #### ResNet
 ![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/ResNEt/accuracy.png "ResNet")
-#### Fractional Max Pooling
-![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/FMP/accuracy.png "Fractional Max Pooling")
-#### Hybrid Model
-![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/Hybrid/accuracy.png "Hybrid")
-
-### Loss
-#### ResNet
 ![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/ResNEt/Loss.png "ResNet")
 #### Fractional Max Pooling
+![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/FMP/accuracy.png "Fractional Max Pooling")
 ![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/FMP/loss.png "Fractional Max Pooling")
 #### Hybrid Model
+![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/Hybrid/accuracy.png "Hybrid")
 ![alt text](https://github.com/AtharvaSune/FMP-ResNet/blob/master/Hybrid/loss.png "Hybrid")
 
 ## Conclusions
