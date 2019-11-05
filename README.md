@@ -1,5 +1,19 @@
-# FMP-ResNet
+# ResNet + Fractional Max Pooling
 
-Files currently present are of of no use as it is, modify them and then send a PR.
+This repository implements two research papers for state of the art Convolutional Neural Networks on the CIFAR - 10 dataset. Further, these two models have been combined to form a hybrid model. 
 
-## Fork then PR, do not push directly to master branch 
+## Introduction
+
+ResNets: ...
+
+Fractional Max Pooling ...
+
+## Papers
+
+a. <a href = "https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a>, by Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
+
+b. <a href = "https://arxiv.org/abs/1412.6071">Fractional Max-Pooling<a/> by Benjamin Graham
+
+## The hybrid model
+...
+
