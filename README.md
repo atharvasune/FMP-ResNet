@@ -1,8 +1,8 @@
 # ResNet + Fractional Max Pooling
 
-This repository implements two research papers for state of the art Convolutional Neural Networks on the CIFAR - 10 dataset. Further, these two models have been combined to form a hybrid model. 
-
 ## Introduction
+
+This repository implements two research papers for state of the art Convolutional Neural Networks on the CIFAR - 10 dataset. Further, these two models have been combined to form a hybrid model. 
 
 ### ResNet
 
