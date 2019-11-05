@@ -27,6 +27,6 @@ a. <a href = "https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image
 
 b. <a href = "https://arxiv.org/abs/1412.6071">Fractional Max-Pooling<a/> by Benjamin Graham
 
-## The hybrid model
+## The Hybrid Model
 ...
 
