@@ -1,3 +1,4 @@
+#importing required libraries
 from __future__ import absolute_import
 import matplotlib.pyplot as plt
 import random
@@ -12,7 +13,7 @@ from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.callbacks import ModelCheckpoint
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-
+#defining FMP class
 class FractionalPooling2D(Layer):
     def __init__(self, pool_ratio=None, pseudo_random=True, overlap=False, name='FractionPooling2D', **kwargs):
         self.pool_ratio = pool_ratio
@@ -46,7 +47,7 @@ class FractionalPooling2D(Layer):
     def build(self, input_shape):
         self.input_spec = [InputSpec(shape=input_shape)]
 
-
+#loading dataset
 #-------------------------------------------------------------------------#
 (x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar10.load_data()
 y_train = to_categorical(y_train)
@@ -62,7 +63,7 @@ valid_dataset = valid_dataset.map(
     lambda x, y: (tf.cast(x, tf.float32) / 255.0, y))
 valid_dataset = valid_dataset.repeat()
 
-
+#defining blocks
 def res_net_block(input_data, filters, conv_size):
     x = layers.Conv2D(filters, conv_size, activation='relu',
                       padding='same')(input_data)
@@ -83,14 +84,17 @@ def non_res_block(input_data, filters, conv_size):
     x = layers.BatchNormalization()(x)
     return x
 
-
+# making the model
 inputs = keras.Input(shape=(32, 32, 3))
 x = layers.Conv2D(32, 3, activation='relu')(inputs)
 x = layers.Conv2D(64, 3, activation='relu')(x)
 x = FractionalPooling2D(3)(x)
+
 num_res_net_blocks = 10
+
 for i in range(num_res_net_blocks):
     x = res_net_block(x, 64, 3)
+    
 x = layers.Conv2D(64, 3, activation='relu')(x)
 x = FractionalPooling2D(3)(x)
 x = layers.Flatten()(x)
@@ -98,12 +102,6 @@ x = layers.Dense(256, activation='relu')(x)
 outputs = layers.Dense(10, activation='softmax')(x)
 hybrid_model = keras.Model(inputs, outputs)
 
-
-callbacks = [
-    # Write TensorBoard logs to `./logs` directory
-    keras.callbacks.TensorBoard(
-        log_dir='./log/{}'.format(dt.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")), write_images=True),
-]
 hybrid_model.compile(optimizer=keras.optimizers.Adam(),
                      loss='categorical_crossentropy',
                      metrics=['acc'])
@@ -120,7 +118,7 @@ results = hybrid_model.fit(train_dataset, epochs=50, steps_per_epoch=100,
 
 
 #---------------------------------------------------------------#
-%matplotlib inline
+#plotting
 plt.plot(results.history['acc'])
 plt.plot(results.history['val_acc'])
 plt.title('model accuracy')
