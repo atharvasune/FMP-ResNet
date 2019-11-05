@@ -34,8 +34,6 @@ present every 2 or 3 layers.
   * Number of Layers (ResNet blocks): 20
   * Number of Dense Layers: 2
   * Number of Parameters: 1,612,042
-  * train accuracy: ~78%
-  * validation accuracy: ~71%
   * <a href = "https://github.com/AtharvaSune/FMP-ResNet/blob/master/ResNEt/ResNet.txt">Model Summary </a>
   
 <h4> Fractional Max Pooling </h4>
@@ -43,8 +41,6 @@ present every 2 or 3 layers.
   * Number of Layers (Convolutional blocks): 18
   * Number of Dense Layers: 2
   * Number of Parameters: 66,865,738
-  * train accuracy: ~70%
-  * validation accuracy: ~69%
   * <a href = "https://github.com/AtharvaSune/FMP-ResNet/blob/master/FMP/FMP.txt">Model Summary </a>
   
 <h4> HYBRID: ResNet + Fractional Max Pooling </h4>
@@ -53,8 +49,6 @@ This model aims to combine both the above techniques. To accomplish this, the Ma
   * Number of Layers (ResNet blocks): 12
   * Number of Dense Layers: 2
   * Number of Parameters: 868,362
-  * train accuracy: ~78%
-  * validation accuracy: ~72%
   * <a href = "https://github.com/AtharvaSune/FMP-ResNet/blob/master/Hybrid/Hybrid.txt">Model Summary </a>
 
 ## Results
@@ -75,7 +69,8 @@ Training was done over 50 epochs with a step size 100. There were 64 images per 
 
 ## Conclusions
 
-  * The number of parameters while using ResNet was significantly less as compared to when using only Fractional Max Pooling.
-  * Upon completion of 50 epochs, the accuracy of 
-     * Fractional Max Pooling 
+  * The Hybrid Model gives comparable results to the ResNet model, with almost <b>half</b> the number of layers and parameters.
+  * This leads to much lesser scope of overfitting in the Hybrid Model since the number of parameters is 50 %.
+  * Since the size of the model is significantly smaller, the memory consumption of the model is lesser but gives similar levels of performance.
+  * For more complex models, the depth of the hybrid model can thus be increased without worrying about computation and overfitting as with regular ResNets
 
