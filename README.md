@@ -41,7 +41,7 @@ present every 2 or 3 layers.
   
 <h4> HYBRID: ResNet + Fractional Max Pooling </h4>
 
-  * This model aims to combine both the above techniques. To accomplish this, the Max Pooling layers in ResNet have been replaced by Fractional Pooling Layers, which were created using Keras Layer Sub-classing (Custom Layer)
+This model aims to combine both the above techniques. To accomplish this, the Max Pooling layers in ResNet have been replaced by Fractional Pooling Layers, which were created using Keras Layer Sub-classing (Custom Layer)
   * Number of Layers (ResNet blocks): 12
   * Number of Dense Layers: 2
 
